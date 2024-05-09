@@ -1,62 +1,163 @@
-/* Add this to your CSS file */
-
-body {
-  font-family: 'Roboto', sans-serif;
-  background-color: #f7f7f7;
+/* body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
   margin: 0;
-  padding: 0;
 }
 
-.container {
-  max-width: 400px;
-  margin: 50px auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-h1 {
+.app-container {
   text-align: center;
-  color: #333;
 }
 
 input {
-  width: 100%;
-  padding: 12px;
-  margin: 10px 0;
-  box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-label {
-  display: block;
-  margin: 10px 0 5px;
-  color: #555;
+  margin: 10px;
 }
 
 button {
-  background-color: #3498db;
-  color: #fff;
-  padding: 12px;
+  padding: 10px;
+  background-color: #4caf50;
+  color: white;
   border: none;
-  border-radius: 4px;
   cursor: pointer;
-  font-size: 16px;
-  width: 100%;
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #45a049;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin-top: 15px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.result-table {
+  width: 50%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #4caf50;
+  color: white;
+} */
+
+
+/* ////////////////////////////////////////////////////////////////////////////// */
+/* .app-container {
+  text-align: center;
+}
+
+.result-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; 
+  align-items: flex-start; 
+  gap: 10px; 
+}
+
+.result-item {
+  border: 1px solid #ccc; 
+  padding: 10px;
+  width: 150px; 
+  text-align: left;
+}
+
+.result-name {
+  font-weight: bold;
+}
+
+.result-confidence {
+  font-size: 12px; 
+}
+
+.result-preview {
+  width: 100px; 
+  height: auto;} */
+/* ////////////////////////////////////////////////////////////////////////////// */
+
+
+
+/* Main container styles */
+
+html{
+  background-color: #b0cde7; 
+
+}
+.app-container {
+  text-align: center; 
+  padding: 60px; 
+  background-color: #b0cde7; 
+}
+
+/* Header styles */
+.app-container h1 {
+  color: #333; 
+  font-family: 'Arial', sans-serif; 
+}
+
+/* File input and button styles */
+input[type="file"] {
+  margin-right: 10px; 
+  font-family: 'Arial', sans-serif; 
+}
+
+button {
+  background-color: #4CAF50; 
+  color: white; /* White text for contrast */
+  border: none; 
+  padding: 10px 20px; 
+  text-transform: uppercase; 
+  font-family: 'Arial', sans-serif;
+  cursor: pointer; 
+  border-radius: 5px; /* Rounded corners */
+  transition: background-color 0.3s; 
+}
+
+button:hover {
+  background-color: #45a049; 
+}
+
+/* Results container styles */
+.result-container {
+  margin-top: 50px;
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: center; 
+  gap: 20px; 
+}
+
+/* Result item styles */
+.result-item {
+  border: 1px solid #ddd; 
+  padding: 15px; 
+  border-radius: 10px; 
+  background-color: rgb(19, 104, 153); 
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); 
+  text-align: left; 
+  transition: box-shadow 0.3s; 
+}
+
+.result-item:hover {
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); 
+}
+
+/* Text styles within result item */
+.result-name {
+  font-weight: bold; /* Bold font for emphasis */
+  color: #ffffff; /* Dark color for contrast */
+}
+
+.result-confidence {
+  font-size: 14px; /* Slightly smaller font size */
+  color: #ffffff; /* Gray color for differentiation */
+}
+
+/* Image preview styles */
+.result-preview {
+  width: 100px; /* Set image width */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 5px; /* Rounded corners for image */
 }
 

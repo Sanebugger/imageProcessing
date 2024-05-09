@@ -1,158 +1,220 @@
-// import React, { useState } from 'react';
 
-// const Home = () => {
-//   const [selectedImage, setSelectedImage] = useState(null);
-//   const [batchName, setBatchName] = useState('');
-//   const [selectedDate, setSelectedDate] = useState('');
-
-//   const handleImageSelection = (event) => {
-//     const file = event.target.files[0];
-//     setSelectedImage(file);
-//   };
-
-//   const handleCameraCapture = async () => {
-//     try {
-//       const stream = await navigator.mediaDevices.getUserMedia({ video: true });
-//       const video = document.createElement('video');
-//       document.body.appendChild(video);
-//       video.srcObject = stream;
-
-//       video.onloadedmetadata = () => {
-//         video.play();
-
-//         // Create a canvas element to capture a frame from the video stream
-//         const canvas = document.createElement('canvas');
-//         canvas.width = video.videoWidth;
-//         canvas.height = video.videoHeight;
-//         const context = canvas.getContext('2d');
-//         context.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-//         // Convert the canvas content to a Blob (image file)
-//         canvas.toBlob((blob) => {
-//           setSelectedImage(blob);
-//           // Stop the video stream and remove the video element
-//           stream.getTracks().forEach((track) => track.stop());
-//           document.body.removeChild(video);
-//         }, 'image/png');
-//       };
-//     } catch (error) {
-//       console.error('Error accessing camera:', error);
-//     }
-//   };
-//   const handleSubmit = async () => {
-//     try {
-//       const formData = new FormData();
-//       formData.append('image', selectedImage);
-//       formData.append('batchName', batchName);
-//       formData.append('selectedDate', selectedDate);
   
-//       const response = await fetch('http://localhost:3000/upload', {
+  // ###############################################################################################################
+  
+  //   import React, { useState } from 'react';
+  //   import './App.css';
+  
+  // const App = () => {
+    //   const [selectedFile, setSelectedFile] = useState(null);
+    //   const [namesAndAll, setNamesAndAll] = useState([]);
+    
+    //   const handleFileChange = (event) => {
+      //     setSelectedFile(event.target.files[0]);
+      //   };
+      
+      //   const handleUpload = async () => {
+        //     const formData = new FormData();
+//     formData.append('image', selectedFile);
+
+//     try {
+  //       const response = await fetch('http://192.168.115.26:5000/predict', {
+    //         method: 'POST',
+    //         body: formData,
+    //       });
+    
+    //       if (response.ok) {
+      //         const data = await response.json();
+      //         setNamesAndAll(data);
+      //       } else {
+        //         console.error('Failed to upload image');
+        //       }
+        //     } catch (error) {
+          //       console.error('Error:', error);
+          //     }
+          //   };
+          
+          //   return (
+            //     <div>
+            //       <h1>Face Recognition App</h1>
+            //       <input type="file" onChange={handleFileChange} />
+            //       <button onClick={handleUpload}>Upload</button>
+            
+            //       {namesAndAll.length > 0 && (
+              //         <table>
+//           <thead>
+//             <tr>
+//               <th>Name</th>
+//               <th>Confidence Score</th>
+//               <th>image</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {namesAndAll.map((item, index) => (
+  //               <tr key={index}>
+  //                 <td>{item.name}</td>
+  //                 <td>{item.Confidence_Score}</td>
+  //                 <td>{item.name}</td>
+  //               </tr>
+  //             ))}
+  //           </tbody>} from "react-router-dom";
+
+  //         </table>
+  //       )}
+  //     </div>
+  //   );
+  // };
+  
+  // export default App;
+  
+  // ###############################################################################################################
+
+//   import React, { useState } from 'react';
+// import './App.css'; // Import your CSS file for styling
+// const App = () => {
+//   const [selectedFile, setSelectedFile] = useState(null);
+//   const [namesAndAll, setNamesAndAll] = useState([]);
+
+//   const handleFileChange = (event) => {
+//     setSelectedFile(event.target.files[0]);
+//   };
+
+//   const handleUpload = async () => {
+//     const formData = new FormData();
+//     formData.append('image', selectedFile);
+
+//     try {
+//       const response = await fetch('http://192.168.201.26:5000/predict', {
 //         method: 'POST',
 //         body: formData,
 //       });
-  
+
 //       if (response.ok) {
-//         const result = await response.json();
-  
-//         if (result.success) {
-//           console.log('Image successfully uploaded to the server!');
-//           console.log('Image URL:', result.imageUrl);
-//           console.log('Batch:', result.batch);
-//           console.log('Date:', result.date);
-          
-//           // You can update your UI or perform additional actions with the response data
-//         } else {
-//           console.error('Server response indicates failure.');
-//         }
+//         const data = await response.json();
+//         setNamesAndAll(data);
 //       } else {
-//         console.error('Failed to upload image to the server.');
+//         console.error('Failed to upload image');
 //       }
 //     } catch (error) {
-//       console.error('Error sending POST request:', error);
+//       console.error('Error:', error);
 //     }
 //   };
-  
-//   return (
-//     <div>
-//       <h2>Home Page</h2>
-//       <button onClick={handleCameraCapture}>Capture Image from Camera</button>
-//       <br />
-//       <input type="file" onChange={handleImageSelection} accept="image/*" />
-//       <br />
-//       <label>
-//         Batch Name:
-//         {/* <input type="text" value={batchName} onChange={(e) => setBatchName(e.target.value)} /> */}
-//         <input type="text" value={batchName} onChange={(e) => setBatchName(e.target.value)} />
 
-//       </label>
-//       <br />
-//       <label>
-//         Date:
-// {/* <input type="date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} /> */}
-//         <input type="Date" value={selectedDate} onChange={(e) => setSelectedDate(e.target.value)} />
-//       </label>
-//       <br />
-//       <button type="button" onClick={handleSubmit}>
-//         Submit
-//       </button>
+//   return (
+//     <div className="app-container">
+//       <h1>Face Recognition App</h1>
+//       <input type="file" onChange={handleFileChange} />
+//       <button onClick={handleUpload}>Upload</button>
+
+//       {namesAndAll.length > 0 && (
+//         <table className="result-table">
+//           <thead>
+//             <tr>
+//               <th>Name</th>
+//               <th>Confidence Score</th>
+//               <th>Preview</th>
+//             </tr>
+//           </thead>
+//           <tbody>
+//             {namesAndAll.map((item, index) => (
+//               <tr key={index}>
+//                 <td>{item.name}</td>
+//                 <td>{item.Confidence_Score}</td>
+//                 <td>
+//                   <img
+//                     src={`data:image/jpeg;base64,${item.Cropped_image_encoded}`}
+//                     alt={`Preview ${item.name}`}
+//                     style={{ maxWidth: '100px', maxHeight: '100px' }}
+//                   />
+//                 </td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       )}
 //     </div>
 //   );
 // };
 
-// export default Home;
-import React, { useState } from 'react';
-import axios from 'axios';
-import './App.css'; 
-const UploadImage = () => {
-  const [file, setFile] = useState(null);
-  const [batch, setBatch] = useState('');
-  const [date, setDate] = useState('');
-  const [imageUrl, setImageUrl] = useState('');
+// export default App;
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import React, { useState } from 'react';
+import './App.css';
+
+const App = () => {
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [namesAndAll, setNamesAndAll] = useState([]);
+
+  const handleFileChange = (event) => {
+    setSelectedFile(event.target.files[0]);
   };
 
   const handleUpload = async () => {
+    if (!selectedFile) {
+      console.error('No file selected');
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+
     try {
-      const formData = new FormData();
-      formData.append('image', file);
-      formData.append('batch', batch);
-      formData.append('date', date);
+      const response = await fetch('http://192.168.120.26:5000/predict', {
+        method: 'POST',
+        body: formData,
+      });
 
-      const response = await axios.post('http://localhost:3000/upload', formData);
-
-      if (response.data.success) {
-        setImageUrl(response.data.imageUrl);
-        // Handle success, e.g., show a success message to the user
+      if (response.ok) {
+        const data = await response.json();
+        setNamesAndAll(data);
       } else {
-        // Handle failure, e.g., show an error message to the user
+        console.error('Failed to upload image');
       }
     } catch (error) {
-      console.error('Error uploading image:', error);
+      console.error('Error:', error);
     }
   };
 
   return (
-    <div>
-      <h1>Image Upload</h1>
+    <div className="app-container">
+      <h1>Face Recognition App</h1>
       <input type="file" onChange={handleFileChange} />
-      <br />
-      <label>Batch: </label>
-      <input type="text" value={batch} onChange={(e) => setBatch(e.target.value)} />
-      <br />
-      <label>Date: </label>
-      <input type="text" value={date} onChange={(e) => setDate(e.target.value)} />
-      <br />
-      <button onClick={handleUpload}>Upload Image</button>
-      {imageUrl && (
-        <div>
-          <h2>Uploaded Image</h2>
-          <img src={imageUrl} alt="Uploaded" style={{ maxWidth: '100%' }} />
+      <button onClick={handleUpload}>Upload</button>
+
+      {namesAndAll.length > 0 && (
+        <div className="result-container">
+          {namesAndAll.map((item, index) => (
+            <div key={index} className="result-item">
+              <div className="result-name">{item.name}</div>
+              <div className="result-confidence">
+                Confidence: {item.Confidence_Score}
+              </div>
+              <img
+                src={`data:image/jpeg;base64,${item.Cropped_image_encoded}`}
+                alt={`Preview ${item.name}`}
+                className="result-preview"
+              />
+            </div>
+          ))}
         </div>
       )}
     </div>
   );
 };
 
-export default UploadImage;
+export default App;
