@@ -114,14 +114,14 @@ const LoginCard = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   
-  // const handleLogin = () => {
-  //   // Dummy login logic for demonstration
-  //   if (username === 'user' && password === 'password') {
-  //     navigate('/home');
-  //   } else {
-  //     alert('Incorrect username or password');
-  //   }
-  // };
+  const handleLogin = () => {
+    // Dummy login logic for demonstration
+    if (username === 'user' && password === 'password') {
+      navigate('/home');
+    } else {
+      alert('Incorrect username or password');
+    }
+  };
   // const handleLogin = async () => {
   //   try {
   //     const response = await fetch('http://your-api-endpoint/login', {
@@ -145,36 +145,36 @@ const LoginCard = () => {
   //   }
   // };
 
-  const handleLogin = async () => {
-    try {
-      // Create a FormData object and append the username and password fields
-      const formData = new FormData();
-      formData.append('username', username);
-      formData.append('password', password);
+  // const handleLogin = async () => {
+  //   try {
+  //     // Create a FormData object and append the username and password fields
+  //     const formData = new FormData();
+  //     formData.append('username', username);
+  //     formData.append('password', password);
 
-      // Send the formData using fetch
-      const response = await fetch('http://192.168.204.26:5000/login_sign_in', {
-        method: 'POST',
-        body: formData, // Pass the formData object directly
-      });
+  //     // Send the formData using fetch
+  //     const response = await fetch('http://192.168.204.26:5000/login_sign_in', {
+  //       method: 'POST',
+  //       body: formData, // Pass the formData object directly
+  //     });
 
-      const data = await response.json();
+  //     const data = await response.json();
 
-      // Log the response to see what's being returned
-      console.log('Response from server:', data);
+  //     // Log the response to see what's being returned
+  //     console.log('Response from server:', data);
 
-      if (data.success) {
-        console.log('Before navigate');
-        console.log('after navigate');
-      } else {
-        alert(data.message || 'Incorrect username or password');
-        navigate('/home'); // Redirect to the home page after successful login                       //lafda hai isme
-      }
-    } catch (error) {
-      console.error('Error during login:', error);
-      alert('An error occurred during login. Please try again later.');
-    }
-  };
+  //     if (data.success) {
+  //       console.log('Before navigate');
+  //       console.log('after navigate');
+  //     } else {
+  //       alert(data.message || 'Incorrect username or password');
+  //       navigate('/home'); // Redirect to the home page after successful login                       //lafda hai isme
+  //     }
+  //   } catch (error) {
+  //     console.error('Error during login:', error);
+  //     alert('An error occurred during login. Please try again later.');
+  //   }
+  // };
 
 
   return (
@@ -237,51 +237,6 @@ const SignupCard = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  // const handleSignup = () => {
-  //   // Dummy signup logic for demonstration
-  //   // Here, you should add logic to save the user to your database
-
-  //   console.log('User signed up:', { firstName, lastName, email, mobile, username, password });
-  //   alert('Signup successful!');
-  //   navigate('/');
-  // };
-
-  // const handleSignup = async () => {
-  //   // Validate input fields (optional but recommended)
-  //   if (!firstName || !lastName || !email || !mobile || !username || !password) {
-  //     alert('Please fill in all fields.');
-  //     return;
-  //   }
-
-  //   try {
-  //     const response = await fetch('http://192.168.204.26:5000/login_registration', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         firstName,
-  //         lastName,
-  //         email,
-  //         mobile,
-  //         username,
-  //         password,
-  //       }),
-  //     });
-
-  //     const data = await response.json();
-
-  //     if (data.success) {
-  //       alert('Signup successful!');
-  //       navigate('/'); // Redirect to login after successful signup
-  //     } else {
-  //       alert(data.message || 'Signup failed. Please try again.');
-  //     }
-  //   } catch (error) {
-  //     console.error('Error during signup:', error);
-  //     alert('An error occurred during signup. Please try again later.');
-  //   }
-  // };
 
   const handleSignup = async () => {
     // Validate input fields (optional but recommended)
@@ -386,12 +341,12 @@ const Home = () => {
         <div className="card-wrapper">
           <div className="card">
             <h2>Mark Attendance</h2>
-            <p>This is some example text for the first card.</p>
+            <p>Tap below to upload pic to mark attendance.</p>
             <button onClick={() => handleButtonClick('/page1')}>click here</button>
           </div>
           <div className="card">
             <h2>Check Attendance</h2>
-            <p>This is some example text for the second card.</p>
+            <p>Tap below to check the attendance .</p>
             <button onClick={() => handleButtonClick('/page2')}>click here</button>
           </div>
         </div>
@@ -441,15 +396,9 @@ const Page1 = () => {
       <div className="container">
         <div className="card-wrapper">
           <div className="card">
-            {/* <h2>Card Title 1</h2>
-            <p>This is some example text for the first card.</p>
-          <button>Button 1</button> */}
-
-
-            {/* old code actual wala of photo uplloading geeting its details   ||||| start  */}
-            {/* <h1>Face Recognition App</h1> */}
+         
             <h2>Mark Attendance </h2>
-            <p>This is some example text for the first card.</p>
+            {/* <p>This is some example text for the first card.</p> */}
 
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
@@ -475,14 +424,8 @@ const Page1 = () => {
               </div>
             )}
 
-            {/* old code actual wala of photo uplloading geeting its details   ||||| end   */}
-
           </div>
-          {/* <div className="card">
-            <h2>Check Attendance</h2>
-            <p>This is some example text for the second card.</p>
-            <button>Button 2</button>
-          </div> */}
+         
         </div>
       </div>
 
