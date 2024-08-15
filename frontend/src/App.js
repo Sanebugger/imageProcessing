@@ -114,14 +114,14 @@ const LoginCard = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
   
-  const handleLogin = () => {
-    // Dummy login logic for demonstration
-    if (username === 'user' && password === 'password') {
-      navigate('/home');
-    } else {
-      alert('Incorrect username or password');
-    }
-  };
+  // const handleLogin = () => {
+  //   // Dummy login logic for demonstration
+  //   if (username === 'user' && password === 'password') {
+  //     navigate('/home');
+  //   } else {
+  //     alert('Incorrect username or password');
+  //   }
+  // };
   // const handleLogin = async () => {
   //   try {
   //     const response = await fetch('http://your-api-endpoint/login', {
@@ -145,36 +145,36 @@ const LoginCard = () => {
   //   }
   // };
 
-  // const handleLogin = async () => {
-  //   try {
-  //     // Create a FormData object and append the username and password fields
-  //     const formData = new FormData();
-  //     formData.append('username', username);
-  //     formData.append('password', password);
+  const handleLogin = async () => {
+    try {
+      // Create a FormData object and append the username and password fields
+      const formData = new FormData();
+      formData.append('username', username);
+      formData.append('password', password);
 
-  //     // Send the formData using fetch
-  //     const response = await fetch('http://192.168.204.26:5000/login_sign_in', {
-  //       method: 'POST',
-  //       body: formData, // Pass the formData object directly
-  //     });
+      // Send the formData using fetch
+      const response = await fetch('http://192.168.204.26:5000/login_sign_in', {
+        method: 'POST',
+        body: formData, // Pass the formData object directly
+      });
 
-  //     const data = await response.json();
+      const data = await response.json();
 
-  //     // Log the response to see what's being returned
-  //     console.log('Response from server:', data);
+      // Log the response to see what's being returned
+      console.log('Response from server:', data);
 
-  //     if (data.success) {
-  //       console.log('Before navigate');
-  //       console.log('after navigate');
-  //     } else {
-  //       alert(data.message || 'Incorrect username or password');
-  //       navigate('/home'); // Redirect to the home page after successful login                       //lafda hai isme
-  //     }
-  //   } catch (error) {
-  //     console.error('Error during login:', error);
-  //     alert('An error occurred during login. Please try again later.');
-  //   }
-  // };
+      if (data.success) {
+        console.log('Before navigate');
+        console.log('after navigate');
+      } else {
+        alert(data.message || 'Incorrect username or password');
+        navigate('/home'); // Redirect to the home page after successful login                       //lafda hai isme
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      alert('An error occurred during login. Please try again later.');
+    }
+  };
 
 
   return (
